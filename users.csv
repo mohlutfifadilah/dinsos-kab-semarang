@@ -1,0 +1,8 @@
+id,id_role,profile_photo_path,email,no_wa,email_verified_at,password,two_factor_secret,two_factor_recovery_codes,two_factor_confirmed_at,name,address,job_or_position,age,is_active,remember_token,created_at,updated_at
+1,1,,admin@gmail.com,,,$2y$10$88fbnSH9kNytkbPIjOxrMO0QpJ.VQjoKbxRUV6qYM46IXsWx8SXca,,,,admin,,,,1,,2023-10-16 20:47:21,2023-10-16 20:47:21
+2,2,,kadin@gmail.com,,,$2y$10$n8.bdn8IrEp3RcB2HkHqEOdXF2OUMLcYcsbuSvHruvI4kzQW70DV6,,,,kadin,,,,1,,2023-10-16 20:47:21,2023-10-16 20:47:21
+3,2,,sekretaris1@gmail.com,,,$2y$10$DcypvcaMpZvikbF61R6iZejboFlrEK1CZj85SLjbQXoNjqA8M7qs.,,,,Sekretaris 1,,,,1,,2023-10-16 20:47:21,2023-10-16 20:47:21
+4,3,,ppsks@gmail.com,,,$2y$10$aejUS1g63DEvgZf.qa0I8eXoj93psmcIlcbH3X73GFfn8njajfkgG,,,,PPSKS,,,,1,,2023-10-16 20:47:21,2023-10-16 20:47:21
+5,4,,ppmks@gmail.com,,,$2y$10$adwsJQlnjQRO82WEzn98Wegov7m1xXVYqWE8iqXKzLSOIK5iauSYC,,,,PPMKS,,,,1,,2023-10-16 20:47:21,2023-10-16 20:47:21
+6,5,,member@gmail.com,,,$2y$10$1q3ss4/opi5Kr0t7OFfspemBZz.RucpBREZrA/OsxZCcDegts43me,,,,member,,,,1,,2023-10-16 20:47:21,2023-10-16 20:47:21
+7,6,,sekretaris2@gmail.com,,,$2y$10$UUaYsE9P6C1jwMJ.ey5nI.FeDMOGPtEDrqMWJt3VD/BTsVItRHK0S,,,,Sekretaris 2,,,,1,,2023-10-16 20:47:21,2023-10-16 20:47:21

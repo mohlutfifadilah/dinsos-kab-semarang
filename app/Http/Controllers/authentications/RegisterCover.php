@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterCover extends Controller
@@ -27,7 +29,11 @@ class RegisterCover extends Controller
                 'name' => 'required', // Input login yang dapat berisi email atau nomor handphone
                 'email' => 'required',
                 'no_wa' => 'required',
-                'password' => 'required',
+                'password' => [
+                  'required',
+                  'min:8',
+                  Password::min(8)->mixedCase()->numbers()->symbols()
+                ],
                 'address' => 'required',
             ],
             [
@@ -36,6 +42,9 @@ class RegisterCover extends Controller
                 'No Handphone.required' => 'No Handphone tidak boleh kosong',
                 'address.required' => 'Alamat tidak boleh kosong',
                 'password.required' => 'Password tidak boleh kosong',
+                'password.min' => 'Password minimal 8 karakter',
+                'password.mixed' => 'Password harus mengandung huruf besar dan kecil, campuran angka dan huruf, dan mengandung simbol',
+
             ],
         );
 

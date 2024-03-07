@@ -3,10 +3,10 @@
   <div class="{{ (!empty($containerNav) ? $containerNav : 'container-xxl') }}">
     <div class="footer-container d-flex align-items-center justify-content-between py-3 flex-md-row flex-column">
       <div class="mb-2 mb-md-0">
-        © <script>
+        <script>
           document.write(new Date().getFullYear())
-
-        </script></div>
+        </script>
+        </div>
       <div>
         {{-- <a href="{{ config('variables.licenseUrl') ? config('variables.licenseUrl') : '#' }}" class="footer-link me-4" target="_blank">License</a>
         <a href="{{ config('variables.moreThemes') ? config('variables.moreThemes') : '#' }}" target="_blank" class="footer-link me-4">More Themes</a>

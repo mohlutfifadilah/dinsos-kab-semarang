@@ -68,6 +68,33 @@ $customizerHidden = 'customizer-hide';
               </div>
             </div>
           </div>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col">
+                <div class="captcha">
+                  <span>{!! captcha_img() !!}</span>
+                  <button type="button" class="btn btn-danger mt-1 text-right" class="reload" id="reload">
+                    &#x21bb;
+                  </button>
+                </div>
+              </div>
+              <div class="col">
+                <input id="captcha" type="text" class="form-control" placeholder="Masukkan Captcha" name="captcha">
+              </div>
+            </div>
+          </div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script>
+            $('#reload').click(function () {
+              $.ajax({
+                  type: 'GET',
+                  url: '/reload-captcha',
+                  success: function (data) {
+                      $(".captcha span").html(data.captcha);
+                  }
+              });
+          });
+          </script>
           <div class="mb-3 d-flex justify-content-between">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="remember-me">

@@ -35,6 +35,7 @@ $controller_path = 'App\Http\Controllers';
 Route::post('/actionLogout', $controller_path . '\authentications\LoginCover@actionLogout')->name('logout');
 Route::get('/login', $controller_path . '\authentications\LoginCover@index')->name('login');
 Route::post('/actionLogin', $controller_path . '\authentications\LoginCover@actionLogin')->name('actionLogin');
+Route::get('/reload-captcha', $controller_path . '\authentications\LoginCover@reloadCaptcha');
 Route::post('/actionRegister', $controller_path . '\authentications\RegisterCover@actionRegister')->name('actionRegister');
 Route::get('/check-email', function (Request $request) {
     $email = $request->input('email');

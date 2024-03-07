@@ -63,24 +63,24 @@
                         @csrf
                         <div class="form-floating form-floating-outline mb-3">
                             <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Masukkan Nama" autofocus>
+                                placeholder="Masukkan Nama" autofocus value="{{ old('name') }}"/>
                             <label for="name">Nama</label>
                         </div>
                         <div class="form-floating form-floating-outline mb-3">
                             <input type="text" class="form-control" id="email" name="email"
-                                placeholder="Masukkan email">
+                                placeholder="Masukkan email" value="{{ old('email') }}">
                             <label for="email">Email</label>
                             {{-- <small id="email-error" class="text-danger hidden">Email sudah ada</small> --}}
                         </div>
                         <div class="form-floating form-floating-outline mb-3">
                             <input type="text" class="form-control" id="no_wa" name="no_wa"
-                                placeholder="Masukkan No Handphone">
+                                placeholder="Masukkan No Handphone" value="{{ old('no_wa') }}">
                             <label for="no_wa">No Handphone</label>
                             {{-- <small id="email-error" class="text-danger hidden">Email sudah ada</small> --}}
                         </div>
                         <div class="form-floating form-floating-outline mb-4">
                             <textarea class="form-control h-px-150" id="exampleFormControlTextarea1" placeholder="Alamat Lengkap"
-                                name="address"></textarea>
+                                name="address">{{ old('address') }}</textarea>
                             <label for="exampleFormControlTextarea1">Alamat Lengkap</label>
                         </div>
                         <div class="mb-3 form-password-toggle">

@@ -22,9 +22,12 @@ class LoginCover extends Controller
     $validator = Validator::make($request->all(), [
         'login' => 'required', // Input login yang dapat berisi email atau nomor handphone
         'password' => 'required',
+        'captcha' => 'required|captcha'
     ], [
         'login.required' => 'Email / No Handphone tidak boleh kosong',
         'password.required' => 'Password tidak boleh kosong',
+        'captcha.required' => 'Captcha tidak boleh kosong',
+        'captcha.captcha' => 'Masukkan captcha dengan benar'
     ]);
 
     if ($validator->fails()) {
@@ -59,6 +62,11 @@ class LoginCover extends Controller
 
 
   }
+
+  public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
   public function actionLogout()
   {
     Auth::logout();

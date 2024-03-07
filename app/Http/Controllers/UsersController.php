@@ -20,6 +20,10 @@ class UsersController extends Controller
     public function index(UsersDataTable $dataTable)
     {
         //
+        if (!Auth::user()){
+          Alert::error('Kesalahan', 'Akses tidak dikenali');
+          return redirect('/login');
+        }
         $role = Role::all();
         return $dataTable->render('admin.users.index', compact('role'));
         // return view('admin.users.index');
@@ -39,6 +43,10 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+        if (!Auth::user()){
+          Alert::error('Kesalahan', 'Akses tidak dikenali');
+          return redirect('/login');
+        }
         // Cek apakah link website sudah ada di tabel desa
         if (User::where('email', $request->email)->exists()) {
             Alert::error('Kesalahan', 'Email sudah digunakan');
@@ -104,6 +112,10 @@ class UsersController extends Controller
     public function edit(string $id)
     {
         //
+        if (!Auth::user()){
+          Alert::error('Kesalahan', 'Akses tidak dikenali');
+          return redirect('/login');
+        }
         $user = User::find($id);
         $role = Role::all();
         return view('admin.users.user_edit', compact('user', 'role'));
@@ -115,6 +127,10 @@ class UsersController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        if (!Auth::user()){
+          Alert::error('Kesalahan', 'Akses tidak dikenali');
+          return redirect('/login');
+        }
         $user = User::find($id);
         $role = Role::find($user->id_role);
         if ($request->role){
@@ -189,6 +205,10 @@ class UsersController extends Controller
     public function destroy(string $id)
     {
         //
+        if (!Auth::user()){
+          Alert::error('Kesalahan', 'Akses tidak dikenali');
+          return redirect('/login');
+        }
         $user = User::find($id);
 
         // validasi user tidak bisa menghapus usernya sendiri

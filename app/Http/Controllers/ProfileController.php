@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
@@ -162,12 +163,19 @@ class ProfileController extends Controller
             $request->all(),
             [
                 'password_lama' => 'required',
-                'password' => 'required|confirmed',
+                'password' => [
+                  'required',
+                  'min:8',
+                  'confirmed',
+                  Password::min(8)->mixedCase()->numbers()->symbols()
+                ],
             ],
             [
                 'password_lama.required' => 'Password Lama tidak boleh kosong',
                 'password.required' => 'Password Baru tidak boleh kosong',
                 'password.confirmed' => 'Password Baru tidak sama',
+                'password.min' => 'Password minimal 8 karakter',
+                'password.mixed' => 'Password harus mengandung huruf besar dan kecil, campuran angka dan huruf, dan mengandung simbol',
             ],
         );
 
