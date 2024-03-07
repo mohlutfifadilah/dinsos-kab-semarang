@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -191,7 +192,9 @@ class ProfileController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Alert::success('Berhasil', 'Password berhasil diperbarui');
-        return redirect('/profile');
+        Alert::success('Berhasil', 'Password berhasil diperbarui, Silahkan login kembali');
+        Auth::logout();
+        Session::flush();
+        return redirect('/login');
     }
 }
