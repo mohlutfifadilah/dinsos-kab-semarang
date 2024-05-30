@@ -899,6 +899,7 @@
         $(document).ready(function() {
             $('.carousel-kategori').slick({
                 centerMode: true,
+                infinite: True,
                 centerPadding: '60px',
                 slidesToShow: 6,
             });

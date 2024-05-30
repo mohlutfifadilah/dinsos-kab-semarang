@@ -36,6 +36,15 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-floating form-floating-outline mb-4">
+                            <select id="sub_kategori" class="select2 form-select" name="sub_kategori">
+                                <option value="{{ $id_subkategori->id }}" selected disabled>{{ $id_subkategori->name }}</option>
+                                @foreach ($subkategori as $r)
+                                    <option value="{{ $r->id }}">{{ $r->name }}</option>
+                                @endforeach
+                            </select>
+                            <label for="country">Sub Kategori</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4">
                                     <input class="form-control" type="file" id="image" name="image">
                                     <label for="image">Upload Image</label>
                                 </div>

@@ -50,6 +50,15 @@
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-floating form-floating-outline mb-4">
+                                    <select id="sub_kategori" class="select2 form-select" name="sub_kategori">
+                                        <option value="" selected disabled>Pilih</option>
+                                        @foreach ($id_subkategori as $r)
+                                            <option value="{{ $r->id }}">{{ $r->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="country">Sub Kategori</label>
+                                </div>
+                                <div class="form-floating form-floating-outline mb-4">
                                     <input class="form-control" type="file" id="image" name="image">
                                     <label for="image">Upload Image</label>
                                 </div>

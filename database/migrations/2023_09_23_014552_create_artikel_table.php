@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('id_user');
             $table->text('image');
             $table->char('judul');
-            $table->string('isi');
+            $table->longText('isi');
             $table->timestamps();
         });
     }

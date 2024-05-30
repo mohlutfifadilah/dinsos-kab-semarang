@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\PelayananDataTable;
 use App\Models\Pelayanan;
+use App\Models\Subkategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -22,11 +23,12 @@ class PelayananController extends Controller
         }
         $pageConfigs = ['myLayout' => 'vertical'];
         $pelayanan = Pelayanan::all();
+        $id_subkategori = Subkategori::all();
         // return view('admin.carousel.index', [
         //   'pageConfigs' => $pageConfigs,
         //   'carousel' => $carousel,
         // ]);
-        return $dataTable->render('admin.pelayanan.index', compact('pelayanan'));
+        return $dataTable->render('admin.pelayanan.index', compact('pelayanan', 'id_subkategori'));
     }
 
     /**
@@ -69,6 +71,7 @@ class PelayananController extends Controller
             // $bukti = $request->file('bukti')->getClientOriginalName();
         }
         Pelayanan::create([
+            'id_subkategori' => $request->sub_kategori,
             'image' => $image,
             'url' => $request->url,
         ]);
@@ -92,7 +95,9 @@ class PelayananController extends Controller
     {
         //
         $pelayanan = Pelayanan::find($id);
-        return view('admin.pelayanan.pelayanan_edit', compact('pelayanan'));
+        $id_subkategori = Subkategori::find($pelayanan->id_subkategori);
+        $subkategori = Subkategori::all();
+        return view('admin.pelayanan.pelayanan_edit', compact('pelayanan', 'id_subkategori', 'subkategori'));
     }
 
     /**
@@ -102,6 +107,12 @@ class PelayananController extends Controller
     {
         //
         $pelayanan = Pelayanan::find($id);
+        $sub_kategori = Subkategori::find($pelayanan->id_subkategori);
+        if($request->sub_kategori === null){
+          $sub_kategori = $pelayanan->id_subkategori;
+        }else{
+          $sub_kategori = $request->sub_kategori;
+        }
         $validator = Validator::make(
             $request->all(),
             [
@@ -134,6 +145,7 @@ class PelayananController extends Controller
             $image = $pelayanan->image;
         }
 
+        $pelayanan->id_subkategori = $sub_kategori;
         $pelayanan->image = $image;
         $pelayanan->url = $request->url;
         $pelayanan->save();
