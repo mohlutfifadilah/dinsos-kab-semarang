@@ -199,7 +199,7 @@ return [
     App\Providers\MenuServiceProvider::class,
     Yajra\DataTables\DataTablesServiceProvider::class,
     RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-    Mews\Captcha\CaptchaServiceProvider::class,
+    // Mews\Captcha\CaptchaServiceProvider::class,
 
   ],
 
@@ -219,7 +219,7 @@ return [
     'Helper' => App\Helpers\Helpers::class,
     'Datatables' => Yajra\Datatables\DatatablesServiceProvider::class,
     'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-    'Captcha' => Mews\Captcha\Facades\Captcha::class,
+    // 'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
   ])->toArray(),
 
